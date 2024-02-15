@@ -1,0 +1,35 @@
+.toDoApp
+    &__select:checked ~ &__label
+        text-decoration: line-through
+    &__label
+        padding: 15px 45px 15px 60px
+        width: 100%
+        
+        line-height: 1.2
+        word-break: break-all
+
+        transition: color 0.4s
+        border: 2px solid transparent
+        cursor: default
+    &__edit-input
+        position: relative
+        z-index: 2
+
+        display: none
+        padding: 15px 25px 15px 15px
+        margin-left: 45px
+        margin-right: 20px
+        width: 100%
+
+        line-height: 1.2
+        word-break: break-all
+
+        background: #fff
+        border: 2px solid black
+
+        
+    &__edit-input:focus + &__label 
+        display: none
+    &__edit-input:focus ~ &__delete
+        display: none
+        
