@@ -7,8 +7,8 @@ import Container from "../Container";
 import s from "./ToDoList.module.scss";
 
 const ToDoList = () => {
-  const [list, setList] = useLocalStorage("list", []);
-  const [filter, setFilter] = useLocalStorage("filter", "all");
+  const [list, setList] = useLocalStorage("ToDoList", []);
+  const [filter, setFilter] = useLocalStorage("ToDoFilter", "all");
 
   return (
     <section className={s.root}>

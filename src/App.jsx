@@ -2,7 +2,7 @@ import Header from "./components/Header";
 import ToDoList from "./components/ToDoList";
 import Footer from "./components/Footer";
 
-import "./App.sass";
+import "./App.scss";
 
 function App() {
   return (

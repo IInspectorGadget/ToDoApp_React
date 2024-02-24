@@ -6,7 +6,7 @@ import s from "./Header.module.scss";
 
 const Header = ({ list, setList }) => {
   const [inputValue, setInputValue] = useState("");
-  const [isChecked, setIsChecked] = useLocalStorage("checkedButton", false);
+  const [isChecked, setIsChecked] = useLocalStorage("ToDoCheckedButton", false);
 
   useEffect(() => {
     const allCompleted = list.every((task) => task.completed === true);
