@@ -39,7 +39,7 @@ const Header = ({ list, setList }) => {
     (e) => {
       setList((prev) =>
         prev.map((el) => {
-          el.completed = e.currentTarget.checked;
+          el.completed = e.target.checked;
           return el;
         }),
       );
