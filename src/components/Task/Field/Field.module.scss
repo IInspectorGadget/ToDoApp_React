@@ -1,0 +1,35 @@
+.label {
+  cursor: default;
+
+  width: 100%;
+  padding: 15px 45px 15px 60px;
+
+  line-height: 1.2;
+  word-break: break-all;
+
+  border: 2px solid transparent;
+
+  transition: color 0.4s;
+}
+
+.editInput {
+  position: relative;
+  z-index: 2;
+
+  display: none;
+
+  width: 100%;
+  margin-right: 20px;
+  margin-left: 45px;
+  padding: 15px 25px 15px 15px;
+
+  line-height: 1.2;
+  word-break: break-all;
+
+  background: #ffffff;
+  border: 2px solid black;
+}
+
+.editInput:focus + .label {
+  display: none;
+}

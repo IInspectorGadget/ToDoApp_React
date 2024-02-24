@@ -1,0 +1,19 @@
+.root {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+}
+
+.sortList {
+  display: flex;
+  gap: 3px;
+}
+
+.itemCount {
+  color: var(--gray-footer);
+}
+
+.clearButton {
+  color: var(--gray-footer);
+}

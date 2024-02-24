@@ -1,0 +1,14 @@
+.root {
+  padding: 3px 7px;
+  color: var(--gray-footer);
+  border: 1px solid transparent;
+  border-radius: 3px;
+
+  &:hover {
+    border-color: var(--pink-footer-100);
+  }
+
+  &Select {
+    border-color: var(--pink-footer-200);
+  }
+}

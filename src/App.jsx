@@ -1,21 +1,17 @@
-import { useState } from 'react'
-import './App.sass'
-import Header from './components/Header/Header'
-import ToDoList from './components//ToDoList/ToDoList'
-import Footer from './components//Footer/Footer'
+import Header from "./components/Header";
+import ToDoList from "./components/ToDoList";
+import Footer from "./components/Footer";
+
+import "./App.sass";
 
 function App() {
-
   return (
-    <>
-      <div className="wrapper">
-        <Header/>
-        <ToDoList/>
-        <Footer/>
-      </div>
-      
-    </>
-  )
+    <div className='wrapper'>
+      <Header />
+      <ToDoList />
+      <Footer />
+    </div>
+  );
 }
 
-export default App
+export default App;

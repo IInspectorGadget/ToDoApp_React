@@ -1,15 +1,17 @@
-import DeleteTaskButton from "../DeleteTaskButton/DeleteTaskButton";
-import ChangeTypeButton from "../ChangeTypeButton/ChangeTypeButton";
-import TaskField from "../TaskField/TaskField";
-import "./Task.sass"
+import ChangeTypeButton from "./ChangeTypeButton";
+import Field from "./Field";
+import DeleteTaskButton from "./DeleteButton";
 
-export default function Task(props){
-    const {id, value, completed, list, setList} = props 
-    
-    return <div className="toDoApp__view">
-        <ChangeTypeButton id={id} checked = {completed} list = {list} setList = {setList}></ChangeTypeButton>
-        <TaskField id={id} value = {value} list = {list} setList = {setList}></TaskField>
-        <DeleteTaskButton id = {id} list = {list} setList = {setList} ></DeleteTaskButton>
+import s from "./Task.module.scss";
+
+const Task = ({ id, value, completed, setList }) => {
+  return (
+    <div className={s.root}>
+      <ChangeTypeButton className={s.select} id={id} checked={completed} setList={setList} />
+      <Field classLabel={s.label} id={id} value={value} setList={setList} />
+      <DeleteTaskButton id={id} setList={setList} />
     </div>
-  
-}
+  );
+};
+
+export default Task;
