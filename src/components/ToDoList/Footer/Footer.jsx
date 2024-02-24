@@ -8,7 +8,7 @@ const Footer = ({ list, setList, filter, setFilter }) => {
   };
   return (
     <div className={s.root}>
-      <p className={s.itemCount}>item left {list.reduce((acc, cur) => acc + cur.completed, 0)}</p>
+      <p className={s.itemCount}>item left {list.length - list.reduce((acc, cur) => acc + cur.completed, 0)}</p>
       <ul className={s.sortList}>
         {["all", "active", "completed"].map((el, idx) => (
           <li key={idx} className={s.sortItem}>
