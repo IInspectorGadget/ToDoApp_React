@@ -1,17 +1,19 @@
-import { useState, useRef, useCallback } from "react";
-
+import { useState, useRef, useCallback, memo } from "react";
 import cx from "classnames";
 
 import s from "./Field.module.scss";
 
-const Field = ({ classInput, classLabel, id, value, setList }) => {
+const Field = memo(({ classInput, classLabel, id, value, setList }) => {
   const [editValue, setEditValue] = useState(value);
 
   const ref = useRef();
 
-  const handlerChange = (e) => {
-    setEditValue(e.target.value);
-  };
+  const handlerChange = useCallback(
+    (e) => {
+      setEditValue(e.target.value);
+    },
+    [setEditValue],
+  );
 
   const handlerDoubleClick = useCallback(() => {
     ref.current.style.display = "block";
@@ -45,6 +47,8 @@ const Field = ({ classInput, classLabel, id, value, setList }) => {
       </label>
     </>
   );
-};
+});
+
+Field.displayName = "Field";
 
 export default Field;

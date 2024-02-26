@@ -1,8 +1,10 @@
-import { useMemo } from "react";
-import Task from "../../Task/Task";
+import { memo, useMemo } from "react";
+
+import Task from "@components/Task";
+
 import s from "./Main.module.scss";
 
-const Main = ({ list, setList, filter }) => {
+const Main = memo(({ list, setList, filter }) => {
   const filteredList = useMemo(() => {
     switch (filter) {
       case "all":
@@ -27,6 +29,8 @@ const Main = ({ list, setList, filter }) => {
       </ul>
     </div>
   );
-};
+});
+
+Main.displayName = "Main";
 
 export default Main;

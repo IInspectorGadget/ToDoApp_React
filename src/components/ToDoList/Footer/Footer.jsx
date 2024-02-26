@@ -1,11 +1,13 @@
-import SortButton from "../../SortButton/SortButton";
+import { memo, useCallback } from "react";
+
+import SortButton from "@components/SortButton";
 
 import s from "./Footer.module.scss";
 
-const Footer = ({ list, setList, filter, setFilter }) => {
-  const deleteCompleted = () => {
+const Footer = memo(({ list, setList, filter, setFilter }) => {
+  const deleteCompleted = useCallback(() => {
     setList((prev) => prev.filter((el) => el.completed !== true));
-  };
+  }, [setList]);
   return (
     <div className={s.root}>
       <p className={s.itemCount}>item left {list.length - list.reduce((acc, cur) => acc + cur.completed, 0)}</p>
@@ -21,6 +23,8 @@ const Footer = ({ list, setList, filter, setFilter }) => {
       </button>
     </div>
   );
-};
+});
+
+Footer.displayName = "Footer";
 
 export default Footer;

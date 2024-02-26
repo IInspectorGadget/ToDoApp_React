@@ -5,4 +5,10 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   base: "/ToDoApp_React/",
   plugins: [react()],
+  resolve: {
+    alias: {
+      "@src": "/src",
+      "@components": "/src/components",
+    },
+  },
 });

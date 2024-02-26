@@ -1,10 +1,12 @@
-import ChangeTypeButton from "./ChangeTypeButton";
-import Field from "./Field";
-import DeleteTaskButton from "./DeleteButton";
+import { memo } from "react";
+
+import ChangeTypeButton from "@components/Task/ChangeTypeButton";
+import Field from "@components/Task/Field";
+import DeleteTaskButton from "@components/Task/DeleteButton";
 
 import s from "./Task.module.scss";
 
-const Task = ({ id, value, completed, setList }) => {
+const Task = memo(({ id, value, completed, setList }) => {
   return (
     <div className={s.root}>
       <ChangeTypeButton className={s.select} id={id} checked={completed} setList={setList} />
@@ -12,6 +14,8 @@ const Task = ({ id, value, completed, setList }) => {
       <DeleteTaskButton id={id} setList={setList} />
     </div>
   );
-};
+});
+
+Task.displayName = "Task";
 
 export default Task;

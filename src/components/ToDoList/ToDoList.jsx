@@ -1,8 +1,8 @@
-import useLocalStorage from "../../customHooks/useLocalStorage";
-import ToDoListHeader from "./Header";
-import ToDoListFooter from "./Footer";
-import ToDoListMain from "./Main";
-import Container from "../Container";
+import useLocalStorage from "@src/customHooks/useLocalStorage";
+import Header from "@components/ToDoList/Header";
+import Main from "@components/ToDoList/Main";
+import Footer from "@components/ToDoList/Footer";
+import Container from "@components/Container";
 
 import s from "./ToDoList.module.scss";
 
@@ -13,9 +13,9 @@ const ToDoList = () => {
   return (
     <section className={s.root}>
       <Container className={s.container}>
-        <ToDoListHeader list={list} setList={setList} />
-        <ToDoListMain list={list} setList={setList} filter={filter} />
-        <ToDoListFooter list={list} setList={setList} filter={filter} setFilter={setFilter} />
+        <Header list={list} setList={setList} />
+        <Main list={list} setList={setList} filter={filter} />
+        <Footer list={list} setList={setList} filter={filter} setFilter={setFilter} />
       </Container>
     </section>
   );

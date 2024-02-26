@@ -1,10 +1,10 @@
-import { useCallback, useEffect, useState } from "react";
+import { memo, useCallback, useEffect, useState } from "react";
 
-import useLocalStorage from "../../../customHooks/useLocalStorage";
+import useLocalStorage from "@src/customHooks/useLocalStorage";
 
 import s from "./Header.module.scss";
 
-const Header = ({ list, setList }) => {
+const Header = memo(({ list, setList }) => {
   const [inputValue, setInputValue] = useState("");
   const [isChecked, setIsChecked] = useLocalStorage("ToDoCheckedButton", false);
 
@@ -61,6 +61,8 @@ const Header = ({ list, setList }) => {
       />
     </div>
   );
-};
+});
+
+Header.displayName = "Header";
 
 export default Header;

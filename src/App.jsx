@@ -1,6 +1,6 @@
-import Header from "./components/Header";
-import ToDoList from "./components/ToDoList";
-import Footer from "./components/Footer";
+import Header from "@components/Header";
+import ToDoList from "@components/ToDoList";
+import Footer from "@components/Footer";
 
 import "./App.scss";
 
