@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const storageName = "ToDoList";
+export const storageName = "ToDoList";
 
 const initialState = {
   value: JSON.parse(localStorage.getItem(storageName)) || [],
@@ -12,15 +12,12 @@ export const listSlice = createSlice({
   reducers: {
     addItem: (state, action) => {
       state.value = [...state.value, action.payload];
-      localStorage.setItem(storageName, JSON.stringify(state.value));
     },
     deleteItem: (state, action) => {
       state.value = state.value.filter((el) => el.id !== action.payload);
-      localStorage.setItem(storageName, JSON.stringify(state.value));
     },
     deleteCompleted: (state) => {
       state.value = state.value.filter((el) => el.completed !== true);
-      localStorage.setItem(storageName, JSON.stringify(state.value));
     },
     changeItem: (state, action) => {
       state.value = state.value.map((el) => {
@@ -29,14 +26,12 @@ export const listSlice = createSlice({
         }
         return el;
       });
-      localStorage.setItem(storageName, JSON.stringify(state.value));
     },
     changeCompletes: (state, action) => {
       state.value = state.value.map((el) => {
         el.completed = action.payload;
         return el;
       });
-      localStorage.setItem(storageName, JSON.stringify(state.value));
     },
 
     changeItemComplete: (state, action) => {
@@ -46,7 +41,6 @@ export const listSlice = createSlice({
         }
         return el;
       });
-      localStorage.setItem(storageName, JSON.stringify(state.value));
     },
   },
 });

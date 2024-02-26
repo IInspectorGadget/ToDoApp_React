@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const storageName = "ToDoFilter";
+export const storageName = "ToDoFilter";
 
 const initialState = {
   value: JSON.parse(localStorage.getItem(storageName)) || "all",
@@ -12,7 +12,6 @@ export const listSlice = createSlice({
   reducers: {
     setFilter: (state, action) => {
       state.value = action.payload;
-      localStorage.setItem(storageName, JSON.stringify(state.value));
     },
   },
 });
