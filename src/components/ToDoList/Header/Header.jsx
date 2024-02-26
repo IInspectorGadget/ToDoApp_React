@@ -1,10 +1,14 @@
 import { memo, useCallback, useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addItem, changeCompletes } from "@src/redux/listSlice";
 
 import useLocalStorage from "@src/customHooks/useLocalStorage";
 
 import s from "./Header.module.scss";
 
-const Header = memo(({ list, setList }) => {
+const Header = memo(() => {
+  const list = useSelector((state) => state.list.value);
+  const dispatch = useDispatch();
   const [inputValue, setInputValue] = useState("");
   const [isChecked, setIsChecked] = useLocalStorage("ToDoCheckedButton", false);
 
@@ -21,14 +25,14 @@ const Header = memo(({ list, setList }) => {
           value: inputValue.trim(),
           completed: false,
         };
-        setList((prev) => [...prev, item]);
+        dispatch(addItem(item));
       }
       if (e.key === "Escape" || e.key === "Enter") {
         setInputValue("");
         e.currentTarget.blur();
       }
     },
-    [inputValue, setList, setInputValue],
+    [dispatch, inputValue, setInputValue],
   );
 
   const handleChange = useCallback(
@@ -40,15 +44,10 @@ const Header = memo(({ list, setList }) => {
 
   const changeAllCompleteStates = useCallback(
     (e) => {
-      setList((prev) =>
-        prev.map((el) => {
-          el.completed = e.target.checked;
-          return el;
-        }),
-      );
+      dispatch(changeCompletes(e.target.checked));
       setIsChecked((prev) => !prev);
     },
-    [setList, setIsChecked],
+    [dispatch, setIsChecked],
   );
 
   return (

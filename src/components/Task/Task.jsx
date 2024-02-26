@@ -6,12 +6,12 @@ import DeleteTaskButton from "@components/Task/DeleteButton";
 
 import s from "./Task.module.scss";
 
-const Task = memo(({ id, value, completed, setList }) => {
+const Task = memo(({ id, value, completed }) => {
   return (
     <div className={s.root}>
-      <ChangeTypeButton className={s.select} id={id} checked={completed} setList={setList} />
-      <Field classLabel={s.label} id={id} value={value} setList={setList} />
-      <DeleteTaskButton id={id} setList={setList} />
+      <ChangeTypeButton className={s.select} id={id} checked={completed} />
+      <Field classLabel={s.label} id={id} value={value} />
+      <DeleteTaskButton id={id} />
     </div>
   );
 });

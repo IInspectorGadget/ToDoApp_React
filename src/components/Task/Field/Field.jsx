@@ -1,9 +1,12 @@
 import { useState, useRef, useCallback, memo } from "react";
+import { useDispatch } from "react-redux";
+import { changeItem } from "@src/redux/listSlice";
 import cx from "classnames";
 
 import s from "./Field.module.scss";
 
-const Field = memo(({ classInput, classLabel, id, value, setList }) => {
+const Field = memo(({ classInput, classLabel, id, value }) => {
+  const dispatch = useDispatch();
   const [editValue, setEditValue] = useState(value);
 
   const ref = useRef();
@@ -22,16 +25,9 @@ const Field = memo(({ classInput, classLabel, id, value, setList }) => {
 
   const handlerBlur = useCallback(() => {
     setEditValue((prev) => prev.trim());
-    setList((prev) =>
-      prev.map((el) => {
-        if (el.id === id) {
-          el.value = editValue;
-        }
-        return el;
-      }),
-    );
+    dispatch(changeItem({ id, editValue }));
     ref.current.style.display = "none";
-  }, [id, setList, editValue]);
+  }, [id, editValue, dispatch]);
 
   return (
     <>
