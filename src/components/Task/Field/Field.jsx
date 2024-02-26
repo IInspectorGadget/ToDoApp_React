@@ -21,6 +21,7 @@ const Field = memo(({ classInput, classLabel, id, value, setList }) => {
   }, []);
 
   const handlerBlur = useCallback(() => {
+    setEditValue((prev) => prev.trim());
     setList((prev) =>
       prev.map((el) => {
         if (el.id === id) {

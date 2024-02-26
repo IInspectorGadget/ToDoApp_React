@@ -15,14 +15,17 @@ const Header = memo(({ list, setList }) => {
 
   const handleKeyDown = useCallback(
     (e) => {
-      if (e.key === "Enter") {
+      if (e.key === "Enter" && e.target.value.trim().length) {
         const item = {
           id: Math.random(),
-          value: inputValue,
+          value: inputValue.trim(),
           completed: false,
         };
         setList((prev) => [...prev, item]);
+      }
+      if (e.key === "Escape" || e.key === "Enter") {
         setInputValue("");
+        e.currentTarget.blur();
       }
     },
     [inputValue, setList, setInputValue],
