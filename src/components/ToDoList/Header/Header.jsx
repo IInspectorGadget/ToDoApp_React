@@ -13,7 +13,7 @@ const Header = memo(() => {
   const [isChecked, setIsChecked] = useLocalStorage("ToDoCheckedButton", false);
 
   useEffect(() => {
-    const allCompleted = list.every((task) => task.completed === true);
+    const allCompleted = list.every((task) => task.completed);
     setIsChecked(allCompleted);
   }, [list, setIsChecked]);
 

@@ -1,6 +1,6 @@
-import Header from "@components/ToDoList/Header";
-import Main from "@components/ToDoList/Main";
-import Footer from "@components/ToDoList/Footer";
+import Header from "./Header";
+import Main from "./Main";
+import Footer from "./Footer";
 import Container from "@components/Container";
 
 import s from "./ToDoList.module.scss";
